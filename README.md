@@ -1,7 +1,7 @@
 ## C# Fundamentals ve Best Practices Eğitimi
 
 ### 1. Gün
-- [ ] Git & GitHub & Azure DevOps
+- [x] Git & GitHub & Azure DevOps
 - [ ] Doğru şekilde Class, Metot, Değişken yazma ve Best Practices
 - [ ] C# Memory yönetimi ve çalışma mantığı
 - [ ] Garbage Collector

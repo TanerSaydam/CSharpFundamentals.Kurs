@@ -1,6 +1,6 @@
 <Solution>
   <Folder Name="/Solution Items/">
     <File Path="README.md" />
-    <File Path="Test.txt" />
   </Folder>
+  <Project Path="CSharpFundamentals.ConsoleApp/CSharpFundamentals.ConsoleApp.csproj" Id="df7df5a7-a8a0-471a-9656-a71c302d8fdc" />
 </Solution>
