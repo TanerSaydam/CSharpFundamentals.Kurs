@@ -1,48 +1,82 @@
 ﻿using CSharpFundamentals.ConsoleApp;
 
-Console.WriteLine("Ürün kaydetme ekranına hoş geldiniz");
-Console.WriteLine("----------------------------");
+menu_start:
+Console.Clear();
+Console.WriteLine("Stok takip sistemine hoş geldiniz!");
+Tool.CreateLine();
+Console.WriteLine("1) Ürün Ekle");
+Console.WriteLine("2) Ürün Listesini Göster");
+Console.WriteLine("3) Çıkış Yap");
 
-string res = "";
-
-while (res != "exit")
+string menuRes = Console.ReadLine();
+if (menuRes == "1")
 {
-    Console.ForegroundColor = ConsoleColor.Yellow;
-    Console.WriteLine("Ürün adı girin: ");
-
-    Console.ForegroundColor = ConsoleColor.Gray;
-    var productName = Console.ReadLine();
-
-    Console.ForegroundColor = ConsoleColor.Yellow;
-    Console.WriteLine("Ürün stoğunu girin: ");
-
-    Console.ForegroundColor = ConsoleColor.Gray;
-    var productStock = Console.ReadLine();
-
-    Console.ForegroundColor = ConsoleColor.Yellow;
-    Console.WriteLine("Ürün fiyatını girin: ");
-
-    Console.ForegroundColor = ConsoleColor.Gray;
-    var productPrice = Console.ReadLine();
-
-    //Convert işlemi yapıyorum
-    int stock = Convert.ToInt32(productStock);
-    decimal price = Convert.ToDecimal(productPrice);
-
-    Product product = new(productName ?? "Product Test", stock, price);
-
-    Product.WriteCount();
-    Console.WriteLine("-------------------------");
-    Console.WriteLine("Yeni kayıt: enter / Çık: exit");
-    res = Console.ReadLine();
-
     Console.Clear();
+    while (true)
+    {
+        Console.WriteLine("Ürün kaydetme ekranına hoş geldiniz");
+        Tool.CreateLine();
+
+        ProductService productService = new();
+        var (productName, stock, price) = productService.StartProcess();
+        productService.Add(productName, stock, price);
+
+        Tool.CreateLine();
+        Console.WriteLine("Yeni kayıt: enter / Ana Menü: menu / Çık: exit");
+        string res = Console.ReadLine();
+
+        if (res == "exit")
+        {
+            break;
+        }
+        else if (res == "menu")
+        {
+            goto menu_start;
+        }
+        ;
+
+        Console.Clear();
+    }
+}
+else if (menuRes == "2")
+{
+    Console.Clear();
+
+    Console.WriteLine($"{"#",-4} {"Ürün Adı",-20} {"Stock",-10} {"Birim Fiyatı",-15}");
+    Tool.CreateLine();
+
+    for (int i = 0; i < ProductService.Products.Count; i++)
+    {
+        var product = ProductService.Products[i];
+
+        Console.WriteLine(
+            $"{i + 1,-4} {product.Name,-20} {product.Stock,-10} {product.Price,-15}"
+        );
+    }
+liste_start:
+    Tool.CreateLine();
+    Console.WriteLine("Ana Menü: menu / Çık: exit");
+    string res = Console.ReadLine();
+    if (res == "exit")
+    {
+        Tool.CreateLine();
+        Console.WriteLine("Bizi kullandığınız için teşekkürler");
+        Console.WriteLine("Sistemden çıkış yapılmıştır");
+    }
+    else if (res == "menu")
+    {
+        goto menu_start;
+    }
+    else
+    {
+        Console.WriteLine("Geçersiz değer yazdınız");
+        goto liste_start;
+    }
+}
+else if (menuRes == "3")
+{
+    Tool.CreateLine();
+    Console.WriteLine("Bizi kullandığınız için teşekkürler");
+    Console.WriteLine("Sistemden çıkış yapılmıştır");
 }
 
-//Product product1 = new Product();
-//product1.Add("Product 1", 100, 1500.5m);
-
-//Product product2 = new();
-//product1.Add("Product 2", 200, 2500.5m);
-
-//Console.WriteLine(Product.Products.Count + " products added.");
