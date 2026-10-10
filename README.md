@@ -8,10 +8,16 @@
 - [x] Listeler ve CRUD işlemleri
 
 ### 2. Gün
-- [ ] ORM (Object Relational Mapping) kavramı
-- [ ] Entity Framework Core ile Database işlemleri
-- [ ] LINQ ile veri sorgulama ve filtreleme
-- [ ] CRUD operasyonları ve transaction yönetimi
+- [x] ORM (Object Relational Mapping) kavramı
+- [x] Entity Framework Core ile Database işlemleri
+- [x] LINQ ile veri sorgulama ve filtreleme
+- [x] CRUD operasyonları ve transaction yönetimi
+
+### 3. Gün
+- [ ] WebAPI nedir?
+- [ ] WebAPI Controller Yapısı
+- [ ] WebAPI Minimal API
+- [ ] WebAPI ve EF Core ile Product CRUD işlemleri
 
 ```cmd
 add-migration mg1 //Migration oluşturma
