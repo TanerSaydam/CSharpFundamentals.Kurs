@@ -1,0 +1,1 @@
+﻿Console.WriteLine("EF Core - LINQ Queries");

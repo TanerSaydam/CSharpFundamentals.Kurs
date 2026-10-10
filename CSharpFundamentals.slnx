@@ -3,4 +3,5 @@
     <File Path="README.md" />
   </Folder>
   <Project Path="CSharpFundamentals.ConsoleApp/CSharpFundamentals.ConsoleApp.csproj" Id="df7df5a7-a8a0-471a-9656-a71c302d8fdc" />
+  <Project Path="EFCore.ConsoleApp/EFCore.ConsoleApp.csproj" Id="88a7f71d-ca81-44da-8fc3-ca7e78ecae05" />
 </Solution>
