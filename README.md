@@ -13,7 +13,6 @@
 - [ ] LINQ ile veri sorgulama ve filtreleme
 - [ ] CRUD operasyonları ve transaction yönetimi
 
-
 ```cmd
 add-migration mg1 //Migration oluşturma
 update-database //migration'ları database'e uygulama
