@@ -2,7 +2,6 @@
 
 Console.WriteLine("EF Core - LINQ Queries");
 
-
 ProductService productService = new();
 
 while (true)

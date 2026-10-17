@@ -16,10 +16,19 @@
 ### 3. Gün
 - [ ] WebAPI nedir?
 - [ ] WebAPI Controller Yapısı
+- [ ] WebAPI Methods
+- [ ] WebAPI Status Codes
+- [ ] WebAPI CORS Policy
 - [ ] WebAPI Minimal API
 - [ ] WebAPI ve EF Core ile Product CRUD işlemleri
 
-```cmd
+#### Migration Komutları
+```bash
 add-migration mg1 //Migration oluşturma
 update-database //migration'ları database'e uygulama
+```
+
+#### WebAPI Status Codes
+```bash
+https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status
 ```
