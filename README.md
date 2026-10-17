@@ -17,10 +17,10 @@
 - [x] WebAPI nedir?
 - [x] WebAPI Controller Yapısı
 - [x] WebAPI Methods
-- [ ] WebAPI Status Codes
-- [ ] WebAPI CORS Policy
-- [ ] WebAPI ve EF Core ile Product CRUD işlemleri
-- [ ] WebAPI Minimal API
+- [x] WebAPI Status Codes
+- [x] WebAPI CORS Policy
+- [x] WebAPI ve EF Core ile Product CRUD işlemleri
+- [ ] Ödev - IT Destek Paneli WebAPI projesi yazın. Şiket konusu, içeriği ve acil/normal durum bilgisi olan şikayet kayıtları oluşturabileceğimiz,görebileceğimiz bir WebAPI projesi yazın.
 
 #### Migration Komutları
 ```bash

@@ -1,6 +1,7 @@
 ﻿using CSharpFundamentals.eTicaret.WebAPI.Context;
 using CSharpFundamentals.eTicaret.WebAPI.DTOs;
-using CSharpFundamentals.eTicaret.WebAPI.Models;
+using CSharpFundamentals.eTicaret.WebAPI.Services;
+using Mapster;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CSharpFundamentals.eTicaret.WebAPI.Controllers;
@@ -21,29 +22,24 @@ public class ProductsController : ControllerBase
         return Ok(products);
     }
 
+    [HttpGet("{id}")]
+    public IActionResult Get(Guid id)
+    {
+        ApplicationDbContext dbContext = new();
+        var product = dbContext.Products
+            .Where(p => p.IsDeleted == false && p.Id == id)
+            .FirstOrDefault();
+
+        return Ok(product);
+    }
+
     [HttpPost]
     public IActionResult Create(ProductCreateDto request)
     {
-        ApplicationDbContext dbContext = new();
-
-        bool isNameExists = dbContext.Products.Any(p => p.Name == request.Name);
-        if (isNameExists == true)
-        {
-            var res1 = new { message = "Bu isimde bir ürün zaten mevcut" };
-            return BadRequest(res1);
-        }
-
-        Product product = new()
-        {
-            Name = request.Name,
-            Price = request.Price,
-            Stock = request.Stock
-        };
-
-        dbContext.Products.Add(product);
-        dbContext.SaveChanges();
-        var res2 = new { message = "Kayıt işlemi başarıyla tamamlandı" };
-        return Ok(res2);
+        ProductService productService = new();
+        productService.Create(request);
+        var res = new { message = "Kayıt işlemi başarıyla tamamlandı" };
+        return Ok(res);
     }
 
     [HttpDelete]
@@ -62,6 +58,28 @@ public class ProductsController : ControllerBase
         dbContext.SaveChanges();
 
         var res2 = new { message = "Kayıt başarıyla silindi" };
+        return Ok(res2);
+    }
+
+    [HttpPut]
+    public IActionResult Update(ProductUpdateDto request)
+    {
+        ApplicationDbContext dbContext = new();
+        var product = dbContext.Products.Find(request.Id);
+        if (product is null)
+        {
+            var res1 = new { message = "Kayıt bulunamadı" };
+            return BadRequest(res1);
+        }
+
+        //product.Name = request.Name;
+        //product.Price = request.Price;
+        //product.Stock = request.Stock;
+        request.Adapt(product);
+        dbContext.Products.Update(product);
+        dbContext.SaveChanges();
+
+        var res2 = new { message = "Kayıt başarıyla güncellendi" };
         return Ok(res2);
     }
 }

@@ -2,6 +2,10 @@ GET https://localhost:7089/api/products
 
 ###
 
+GET https://localhost:7089/api/products/01a149e5-8a2c-77a9-801f-430cad993e1f
+
+###
+
 POST https://localhost:7089/api/products
 Content-Type:application/json
 
@@ -14,3 +18,15 @@ Content-Type:application/json
 
 ### 
 DELETE https://localhost:7089/api/products?id=01a149e4-5d48-78ae-922c-1fb2de768570
+
+###
+
+PUT https://localhost:7089/api/products
+Content-Type:application/json
+
+{
+  "id":"01a149e7-a1b3-7f1a-828b-2e14b4710a2b",
+  "name":"New Product 35",
+  "price": 2785.25,
+  "stock": 120
+}
