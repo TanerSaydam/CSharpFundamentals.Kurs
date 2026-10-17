@@ -14,13 +14,13 @@
 - [x] CRUD operasyonları ve transaction yönetimi
 
 ### 3. Gün
-- [ ] WebAPI nedir?
-- [ ] WebAPI Controller Yapısı
-- [ ] WebAPI Methods
+- [x] WebAPI nedir?
+- [x] WebAPI Controller Yapısı
+- [x] WebAPI Methods
 - [ ] WebAPI Status Codes
 - [ ] WebAPI CORS Policy
-- [ ] WebAPI Minimal API
 - [ ] WebAPI ve EF Core ile Product CRUD işlemleri
+- [ ] WebAPI Minimal API
 
 #### Migration Komutları
 ```bash

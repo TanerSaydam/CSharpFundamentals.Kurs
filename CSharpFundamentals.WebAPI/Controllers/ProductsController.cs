@@ -18,7 +18,12 @@ public class ProductsController : ControllerBase
     [HttpGet("getall/{pageNumber}/{pageSize}")]
     public IActionResult GetProducts(int pageNumber, int pageSize) //route params /getall/1/10
     {
-        var res = new List<string> { "Product 1", "Product 2", "Product 3" };
+        List<string> res = new();
+        for (int i = 0; i < 1000000; i++)
+        {
+            res.Add(Guid.CreateVersion7().ToString() + Guid.CreateVersion7().ToString());
+        }
+        //var res = new List<string> { "Product 1", "Product 2", "Product 3" };
 
         return Ok(res);
         //return StatusCode(200,res);
