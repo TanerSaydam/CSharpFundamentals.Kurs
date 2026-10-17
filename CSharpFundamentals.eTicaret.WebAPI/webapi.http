@@ -1,0 +1,16 @@
+GET https://localhost:7089/api/products
+
+###
+
+POST https://localhost:7089/api/products
+Content-Type:application/json
+
+{
+  "name":"New Product 4",
+  "price": 199.99,
+  "stock": 20
+}
+
+
+### 
+DELETE https://localhost:7089/api/products?id=01a149e4-5d48-78ae-922c-1fb2de768570

@@ -1,9 +1,14 @@
-using CSharpFundamentals.eTicaret.WebAPI.Abstractions;
-
 var builder = WebApplication.CreateBuilder(args);
+
+//builder.Services.AddDbContext<ApplicationDbContext>(opt =>
+//{
+//    opt.UseSqlServer("");
+//}); //AI tercihi ve best practices
+
+builder.Services.AddControllers();
 
 var app = builder.Build();
 
-app.Run();
+app.MapControllers();
 
-Entity entity = new();
+app.Run();
